@@ -1,0 +1,132 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Virtual Machine Home</title>
+    <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link href="/static/bootstrap.min.css" rel="stylesheet">
+  </head>
+  <body>
+    <div class="container special">
+        <div class="container">
+            <div class="jumbotron">
+                <h1>Welcome to Virtual Machine Home!</h1>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>Create New VM:</h4><br/>
+                    <form action="/vm/create" method="get">
+                        <input type="text" class = "form-control" placeholder="VM Name" name="name" value="{{request.form.name}}">
+                        <input type="text" class = "form-control" placeholder="VM Instance Type" name="instance_type" value="{{request.form.instance_type}}">
+                        <input type="text" class = "form-control" placeholder="VM Image ID" name="image_id" value="{{request.form.image_id }}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <h4>Remove VM:</h4><br/>
+                    <form action="/vm/destroy" method="get">
+                        <input type="text" class = "form-control" placeholder="VM ID" name="vmid" value="{{request.form.vmid }}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>VM Status:</h4><br/>
+                    <form action="/vm/query" method="get">
+                        <input type="text" class = "form-control" placeholder="VM ID" name="vmid" value="{{request.form.vmid }}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <h4>Physical Machine Status:</h4><br/>
+                    <form action="/pm/query" method="get">
+                        <input type="text" class = "form-control" placeholder="PM ID" name="pmid" value="{{request.form.pmid }}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>List VM's per Machine:</h4><br/>
+                    <form action="/pm/listvms" method="get">
+                        <input type="text" class = "form-control" placeholder="PM ID" name="pmid" value="{{request.form.pm}}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <h4>List All Images:</h4><br/>
+                    <form action="/image/list" method="get">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>List All VM Types:</h4><br/>
+                    <form action="/vm/types" method="get">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <h4>List All Physical Machines:</h4><br/>
+                    <form action="/pm/list" method="get">
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>Create New Volume:</h4><br/>
+                    <form action="/volume/create" method="get">
+                        <input type="text" class = "form-control" placeholder="Volume Name" name="name" value="{{request.form.name}}">
+                        <input type="text" class = "form-control" placeholder="Size in GB" name="size" value="{{request.form.size}}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <h4>Attach Volume:</h4><br/>
+                    <form action="/volume/attach" method="get">
+                        <input type="text" class = "form-control" placeholder="Volume id" name="volumeid" value="{{request.form.volumeid}}">
+                        <input type="text" class = "form-control" placeholder="Vm id" name="vmid" value="{{request.form.vmid}}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>Detach Volume:</h4><br/>
+                    <form action="/volume/detach" method="get">
+                        <input type="text" class = "form-control" placeholder="Volume ID" name="volumeid" value="{{request.form.volumeid}}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+                <div class="col-xs-6">
+                    <h4>Destroy Volume:</h4><br/>
+                    <form action="/volume/destroy" method="get">
+                        <input type="text" class = "form-control" placeholder="Volume ID" name="volumeid" value="{{request.form.volumeid}}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            <div class="row jumbotron">
+                <div class="col-xs-6">
+                    <h4>Query Volume:</h4><br/>
+                    <form action="/volume/query" method="get">
+                        <input type="text" class = "form-control" placeholder="Volume ID" name="volumeid" value="{{request.form.volumeid}}"><br/>
+                        <input class="btn btn-primary" type="submit" value="Submit">
+                    </form>
+                </div>
+            </div>
+
+            </div>
+        </div>
+  </body>
+</html>

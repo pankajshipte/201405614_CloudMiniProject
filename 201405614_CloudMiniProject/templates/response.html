@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <title>Response</title>
+        <meta http-equiv="Content-Type" content="text/html;charset=utf-8"/>
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link href="/static/bootstrap.min.css" rel="stylesheet">
+        <script>
+            var res = '{{ result|tojson }}';
+{#            window.alert(JSON.stringify(res, null, 4));
+
+            document.getElementById("json").value = jsonPretty;#}
+            {#console.log("hii");#}
+            {#var res = '{{ result }}';
+            console.log(res);#}
+            {#var jsonPretty = JSON.stringify(JSON.parse(res),null,2);
+            window.alert(jsonPretty);
+           document.getElementById("json").innerHTML = jsonPretty;#}
+        </script>
+    </head>
+
+    <body>
+        <div class="container special">
+            <div class = "container">
+                <div class="jumbotron">
+                    <h1> Response: </h1>
+                    <textarea class="form-control" rows="17" id="json" ></textarea>
+                    <br/>
+                    <form action="/" method="get">
+                        <input class="btn btn-primary" type="submit" value="Home">
+                    </form>
+                </div>
+            </div>
+        </div>
+        <script>
+            document.getElementById("json").value = res;
+        </script>
+    </body>
+</html>
